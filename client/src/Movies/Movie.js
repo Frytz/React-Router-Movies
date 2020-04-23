@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 const Movie = (props) => {
   const [movie, setMovie] = useState();
   const {id} = useParams();
@@ -33,7 +33,14 @@ const Movie = (props) => {
 
   const { title, director, metascore, stars } = movie;
   return (
+   
     <div className="save-wrapper">
+ <Link to= '/'
+ style={{
+   textDecoration:"none",
+   color:"black",
+ }}
+ >
       <div className="movie-card">
         <h2>{title}</h2>
         <div className="movie-director">
@@ -49,10 +56,14 @@ const Movie = (props) => {
             {star}
           </div>
         ))}
+   
       </div>
+  </Link>
       <div className="save-button">Save</div>
+     
     </div>
   );
 }
 
 export default Movie;
+
